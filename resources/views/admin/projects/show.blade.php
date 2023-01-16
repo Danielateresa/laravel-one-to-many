@@ -13,6 +13,9 @@
         <p>{{$project->title}}</p>
         <h4>Project slug: </h4>
         <p>{{$project->slug}}</p>
+        <h4>Type: </h4>
+        <p>{{$project->type ? $project->type->name : 'No cathegory'}}</p>
+        <!-- c'è una tipologia assegnata? se si, mostra il nome, altrimenti No cathegory -->
         <h4>Project description: </h4>
         <p>{{$project->description}}</p>
     </div>
