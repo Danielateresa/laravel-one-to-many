@@ -48,6 +48,25 @@
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
 
+
+    <div class="mb-3">
+        <label for="type_id" class="form-label">Types</label>
+        <select class="form-select form-select-lg @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
+
+            <option value="">Select Type</option>
+            @forelse($types as $type)
+            <option value="{{$type->id}}" {{ old('type_id') == $type->id ? '$project->type->id' : '' }}>{{$type->name}}
+            </option>
+            @empty
+            <option value="">no type found</option>
+            @endforelse
+        </select>
+    </div>
+    @error('type_id')
+    <div class="alert alert-danger">{{$message}}</div>
+    @enderror
+
+
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
